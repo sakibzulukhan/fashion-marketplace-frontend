@@ -1,20 +1,18 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { healthCheck } from '@/lib/api';
 
 export default function Home() {
-  return (
-    <main>
-      <h1>Fashion Marketplace</h1>
+  const [status, setStatus] = useState('Checking backend...');
 
   useEffect(() => {
-    healthCheck()
+    fetch('https://fashion-marketplace-api.onrender.com/health')
+      .then(res => res.json())
       .then(data => setStatus('✅ Backend Connected!'))
       .catch(() => setStatus('❌ Backend Offline'));
   }, []);
 
   return (
-    <main>
+    <main style={{padding: '2rem'}}>
       <h1>Fashion Marketplace</h1>
       <p>Backend Status: <strong>{status}</strong></p>
     </main>
