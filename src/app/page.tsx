@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import { healthCheck } from '@/lib/api';
 
 export default function Home() {
-  const [status, setStatus] = useState('Checking backend...');
+  return (
+    <main>
+      <h1>Fashion Marketplace</h1>
 
   useEffect(() => {
     healthCheck()
