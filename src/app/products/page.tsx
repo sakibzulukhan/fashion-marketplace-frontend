@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface Product {
   id: number;
@@ -10,7 +10,7 @@ interface Product {
 }
 
 export default function ProductsPage() {
-  const [products, setProducts] = useState<Product[]>([
+  const [products] = useState<Product[]>([
     {
       id: 1,
       name: "Summer Floral Dress",
@@ -29,7 +29,7 @@ export default function ProductsPage() {
       id: 3,
       name: "Leather Handbag",
       price: 129.99,
-      image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300", 
+      image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300",
       category: "Accessories"
     },
     {
@@ -40,9 +40,6 @@ export default function ProductsPage() {
       category: "Tops"
     }
   ]);
-  const [loading, setLoading] = useState(false); // Static data = no loading
-
-  // Remove useEffect fetch entirely - use static data above
 
   return (
     <main style={{padding: '2rem', maxWidth: '1200px', margin: '0 auto'}}>
@@ -83,6 +80,7 @@ export default function ProductsPage() {
     </main>
   );
 }
+
 
 
 
